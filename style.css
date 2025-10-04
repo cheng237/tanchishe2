@@ -1,0 +1,194 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Microsoft YaHei', Arial, sans-serif;
+    background-color: #f0f8ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.game-container {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+.game-header {
+    text-align: center;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.game-header h1 {
+    color: #2e8b57;
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.score-container {
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+}
+
+.game-board-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    max-width: 90vmin;
+    max-height: 60vh;
+    margin: 0 auto;
+    border: 2px solid #2e8b57;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#gameCanvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background-color: #e8f5e9;
+}
+
+#gameOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.game-message, .game-over {
+    text-align: center;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 80%;
+}
+
+.game-message h2, .game-over h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.game-message p, .game-over p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+#startGameBtn, #restartBtn {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+#startGameBtn:hover, #restartBtn:hover {
+    background-color: #388e3c;
+}
+
+.controls-container {
+    width: 100%;
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.controls-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.horizontal-controls {
+    display: flex;
+    gap: 40px;
+    margin: 10px 0;
+}
+
+.control-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    background-color: rgba(46, 139, 87, 0.7);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.control-btn:active {
+    background-color: rgba(46, 139, 87, 1);
+}
+
+.hidden {
+    display: none;
+}
+
+/* 媒体查询，确保在较小屏幕上的适配性 */
+@media (max-height: 600px) {
+    .game-container {
+        padding: 5px;
+    }
+    
+    .game-header h1 {
+        font-size: 20px;
+        margin-bottom: 2px;
+    }
+    
+    .score-container {
+        font-size: 16px;
+    }
+    
+    .game-board-container {
+        max-height: 50vh;
+    }
+    
+    .control-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+    
+    .horizontal-controls {
+        gap: 20px;
+    }
+}
+
+/* 针对超小屏幕的额外优化 */
+@media (max-height: 480px) {
+    .game-header h1 {
+        font-size: 18px;
+    }
+    
+    .game-board-container {
+        max-height: 45vh;
+    }
+    
+    .control-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+    }
+}
